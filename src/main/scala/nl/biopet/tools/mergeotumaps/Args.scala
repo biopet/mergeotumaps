@@ -4,4 +4,4 @@ import java.io.File
 
 case class Args(inputFiles: List[File] = Nil,
                 outputFile: File = null,
-                skipPrefix: List[String] = Nil))
+                skipPrefix: List[String] = Nil)

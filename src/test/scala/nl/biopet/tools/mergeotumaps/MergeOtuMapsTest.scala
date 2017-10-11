@@ -7,15 +7,15 @@ import nl.biopet.test.BiopetTest
 import org.testng.annotations.Test
 
 class MergeOtuMapsTest extends BiopetTest {
-  private def resourcePath(p: String): String = {
-    Paths.get(getClass.getResource(p).toURI).toString
-  }
+  //private def resourcePath(p: String): String = {
+  //  Paths.get(getClass.getResource(p).toURI).toString
+  //}
 
   @Test
   def testMain(): Unit = {
     val temp = File.createTempFile("out", ".txt")
     temp.deleteOnExit()
-    MergeOtuMaps.main(Array("-I", resourcePath("fakeOtu1"), "-I", resourcePath("fakeOtu2"), "-o", temp.getAbsolutePath()))
+    MergeOtuMaps.main(Array("-I", resourcePath("/fakeOtu1"), "-I", resourcePath("/fakeOtu2"), "-o", temp.getAbsolutePath()))
   }
 
   @Test
