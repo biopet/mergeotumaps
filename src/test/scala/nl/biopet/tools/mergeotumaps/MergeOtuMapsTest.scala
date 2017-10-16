@@ -6,16 +6,20 @@ import java.nio.file.Paths
 import nl.biopet.test.BiopetTest
 import org.testng.annotations.Test
 
-class MergeOtuMapsTest extends BiopetTest {
-  //private def resourcePath(p: String): String = {
-  //  Paths.get(getClass.getResource(p).toURI).toString
-  //}
+import scala.io.Source._
 
+class MergeOtuMapsTest extends BiopetTest {
   @Test
   def testMain(): Unit = {
     val temp = File.createTempFile("out", ".txt")
     temp.deleteOnExit()
-    MergeOtuMaps.main(Array("-I", resourcePath("/fakeOtu1"), "-I", resourcePath("/fakeOtu2"), "-o", temp.getAbsolutePath()))
+    MergeOtuMaps.main(Array("-I", resourcePath("/fakeOtu1"), "-I", resourcePath("/fakeOtu2"),
+      "-o", temp.getAbsolutePath(), "-p", "skip_"))
+    val contents = fromFile(temp).mkString
+    val expected = fromFile(resourcePath("/outOtu")).mkString
+    if (contents != expected){
+      throw new Throwable("Output not as expected")
+    }
   }
 
   @Test
