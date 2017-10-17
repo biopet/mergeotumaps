@@ -1,7 +1,6 @@
 package nl.biopet.tools.mergeotumaps
 
 import java.io.File
-import java.nio.file.Paths
 
 import nl.biopet.test.BiopetTest
 import org.testng.annotations.Test
