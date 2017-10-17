@@ -17,9 +17,7 @@ class MergeOtuMapsTest extends BiopetTest {
       "-o", temp.getAbsolutePath(), "-p", "skip_"))
     val contents = fromFile(temp).mkString
     val expected = fromFile(resourcePath("/outOtu")).mkString
-    if (contents != expected){
-      throw new Throwable("Output not as expected")
-    }
+    contents shouldBe expected
   }
 
   @Test
