@@ -2,12 +2,13 @@ package nl.biopet.tools.mergeotumaps
 
 import java.io.File
 
-import nl.biopet.test.BiopetTest
+import nl.biopet.utils.test.tools.ToolTest
 import org.testng.annotations.Test
 
 import scala.io.Source._
 
-class MergeOtuMapsTest extends BiopetTest {
+class MergeOtuMapsTest extends ToolTest[Args] {
+  def toolCommand: MergeOtuMaps.type = MergeOtuMaps
   @Test
   def testMain(): Unit = {
     val temp = File.createTempFile("out", ".txt")
