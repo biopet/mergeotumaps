@@ -19,7 +19,7 @@ object MergeOtuMaps extends ToolCommand[Args] {
     logger.info("Done")
   }
 
-  def mergeOtuMaps(cmdArgs: Args): Unit ={
+  def mergeOtuMaps(cmdArgs: Args): Unit = {
 
     var map: Map[String, String] = Map()
 

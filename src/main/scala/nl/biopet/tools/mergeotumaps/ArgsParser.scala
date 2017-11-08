@@ -15,7 +15,8 @@ class ArgsParser(cmdName: String) extends AbstractOptParser[Args](cmdName) {
     (x, c) =>
       c.copy(outputFile = x)
   } text "Output OTU map file."
-  opt[String]('p', "skipPrefix") unbounded () valueName "<text>" action { (x, c) =>
-    c.copy(skipPrefix = x :: c.skipPrefix)
+  opt[String]('p', "skipPrefix") unbounded () valueName "<text>" action {
+    (x, c) =>
+      c.copy(skipPrefix = x :: c.skipPrefix)
   } text "Prefix that will not be included in the output file. Flag can be used multiple times."
 }
