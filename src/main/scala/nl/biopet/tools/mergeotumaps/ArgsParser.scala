@@ -10,9 +10,9 @@ class ArgsParser(toolCommand: ToolCommand[Args])
     (x, c) =>
       c.copy(inputFiles = x :: c.inputFiles)
   } text
-    """Input OTU map. Flag needs to be specified multiple times: -I OTUmap1 -I OTUmap2.
+    """Input OTU map. Flag needs to be specified at least 2 times: -I OTUmap1 -I OTUmap2.
       |There is no limit to the number of OTU maps that can be merged.""".stripMargin
-  opt[File]('o', "output") required () unbounded () maxOccurs 1 valueName "<file>" action {
+  opt[File]('o', "output") required () maxOccurs 1 valueName "<file>" action {
     (x, c) =>
       c.copy(outputFile = x)
   } text "Output OTU map file."

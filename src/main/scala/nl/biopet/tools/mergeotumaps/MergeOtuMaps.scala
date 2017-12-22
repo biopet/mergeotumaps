@@ -40,4 +40,32 @@ object MergeOtuMaps extends ToolCommand[Args] {
     map.foreach { case (key, list) => writer.println(key + list) }
     writer.close()
   }
+
+  def descriptionText: String =
+    """
+      |This tools merges several OTU maps into one OTU map. It has an option
+      |to skip over certain prefixes that should not appear in the merged output
+      |file.
+    """.stripMargin
+
+  def manualText: String =
+    s"""
+      |$toolName takes several OTU maps and merges them in a single file.
+      |You can ignore certain prefixes in the OTU maps so these entries
+      |are not included in the output file using the `-p` flag.
+    """.stripMargin
+
+  def exampleText: String =
+    s"""
+       |To merge two OTU maps and ignore the prefix `seq8` run:
+       |
+       |${example("-I",
+                  "OtuMap1",
+                  "-I",
+                  "OtuMap2",
+                  "-o",
+                  "MergedOtuMaps",
+                  "-p",
+                  "seq8")}
+     """.stripMargin
 }
